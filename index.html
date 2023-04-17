@@ -49,40 +49,40 @@
         </div>
     </section>
     <script>
-      (function() {
-        var stripe = Stripe('pk_test_51MuRVpGkOBZlJUoJdOT50EAfjw20uZ5N8zbEcutECmWogvNyuvDceyyKavDTrfHbsG9IZF65PdPwDiyxru3QB6cC00hAr3jr18');
-      
-        var checkoutButton = document.getElementById('checkout-button-price_1Mwe3BGkOBZlJUoJjUykyyaJ');
-        checkoutButton.addEventListener('click', function () {
-          /*
-           * When the customer clicks on the button, redirect
-           * them to Checkout.
-           */
-          stripe.redirectToCheckout({
-            lineItems: [{price: 'price_1Mwe3BGkOBZlJUoJjUykyyaJ', quantity: 1}],
-            mode: 'payment',
-            /*
-             * Do not rely on the redirect to the successUrl for fulfilling
-             * purchases, customers may not always reach the success_url after
-             * a successful payment.
-             * Instead use one of the strategies described in
-             * https://stripe.com/docs/payments/checkout/fulfill-orders
-             */
-            successUrl: window.location.protocol + '//1800s.github.io/stri-pe/success',
-            cancelUrl: window.location.protocol + '//1800s.github.io/stri-pe/canceled',
-          })
-          .then(function (result) {
-            if (result.error) {
-              /*
-               * If `redirectToCheckout` fails due to a browser or network
-               * error, display the localized error message to your customer.
-               */
-              var displayError = document.getElementById('error-message');
-              displayError.textContent = result.error.message;
-            }
-          });
-        });
-      })();
-      </script>
+(function() {
+  var stripe = Stripe('pk_test_51MuRVpGkOBZlJUoJdOT50EAfjw20uZ5N8zbEcutECmWogvNyuvDceyyKavDTrfHbsG9IZF65PdPwDiyxru3QB6cC00hAr3jr18');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1Mwe38GkOBZlJUoJvk6GqVtd');
+  checkoutButton.addEventListener('click', function () {
+    /*
+     * When the customer clicks on the button, redirect
+     * them to Checkout.
+     */
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1Mwe38GkOBZlJUoJvk6GqVtd', quantity: 1}],
+      mode: 'payment',
+      /*
+       * Do not rely on the redirect to the successUrl for fulfilling
+       * purchases, customers may not always reach the success_url after
+       * a successful payment.
+       * Instead use one of the strategies described in
+       * https://stripe.com/docs/payments/checkout/fulfill-orders
+       */
+       successUrl: window.location.protocol + '//1800s.github.io/stri-pe/success',
+       cancelUrl: window.location.protocol + '//1800s.github.io/stri-pe/canceled',
+    })
+    .then(function (result) {
+      if (result.error) {
+        /*
+         * If `redirectToCheckout` fails due to a browser or network
+         * error, display the localized error message to your customer.
+         */
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
 </body>
 </html>
